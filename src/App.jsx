@@ -1,14 +1,21 @@
 import './App.css'
-import PuppyPal from './PuppyPal'
+import {puppyList} from './data.js'
+import { useState } from 'react'
 
 function App() {
+  const [puppies, setPuppies] = useState(puppyList);
+  console.log("puppyList: ", puppyList);
   return (
     <>
-      <div>
-        <PuppyPal/>
+      <div className="App"> 
+       {
+        puppies.map((puppy) => {
+          return <p key={puppy.id}>{puppy.name}</p>;
+        })
+       }
       </div>
     </>
-  )
+  );
 }
 
 export default App
